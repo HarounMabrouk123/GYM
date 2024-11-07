@@ -1,12 +1,10 @@
 import React from 'react';
-import whey from '../assets/images/whey.webp'
-
 const ProductCard = ({ product }) => {
   return (
     <div className="border border-gray-200 rounded-lg overflow-hidden shadow-md">
       <div
         className="h-64 bg-cover bg-center"
-        style={{ backgroundImage: `url(${whey})` }}
+        style={{ backgroundImage: `url(${product.imageUrl})` }}
       ></div>
       <div className="p-4 flex flex-col">
         <h3 className="text-[14px] font-medium mb-2 font-sans text-gray-400 text-decoration-line: underline ">{product.mark}</h3>

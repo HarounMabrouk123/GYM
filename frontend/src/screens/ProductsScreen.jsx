@@ -8,7 +8,7 @@ const ProductScreen = () => {
   return (
     <main className='relative'>
 
-         <section className='padding '>
+         <section className='padding  '>
              <Premium></Premium>
          </section>
     </main>
