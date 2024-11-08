@@ -7,10 +7,16 @@ import './index.css'
 import App from './App.jsx'
 import HomeScreen from './screens/HomeScreen.jsx';
 import ProductsScreen from './screens/ProductsScreen.jsx';
+import { Provider } from 'react-redux';
+import store from './store.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
@@ -19,5 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </Route>
       </Routes>
     </BrowserRouter>
+    </Provider>
+
   </React.StrictMode>
 );

@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from 'react';
 import ProductCard from '../../components/ProductCard';
-import axios from 'axios';
+import { useGetProductsQuery } from '../../slices/productsApiSlice';
+import Loader from '../../components/Loader';
+import Message from '../../components/Message';
+
 
 const Premium = () => {
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const { data } = await axios.get('http://localhost:5000/api/products');
-        console.log(data); // Check what data looks like
-        setProducts(data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
 
-    fetchProducts();
-  }, []);
+  const { data: products , isLoading , error } = useGetProductsQuery() ;
+
+           
+
 
   return (
-    <div className="flex flex-col">
-      <h1 className="text-4xl font-bebas font-bold mb-8 mt-9">Shop by Category</h1>
+    <>
+       { isLoading ? ( <Loader></Loader>) : error ? (<Message variant='danger'>{error?.data.message || error.error}</Message>) : (<>        <div className="flex flex-col">
+        
+      <h1 className="text-4xl font-bebas font-bold mb-8 mt-12">Shop by Category</h1>
       <div className="flex justify-around gap-2 space-x-8 mb-10">
         <button className="text-2xl font-bebas text-gray-500">Protein</button>
         <button className="text-2xl font-bebas text-gray-500">Pre-Workout</button>
@@ -39,7 +34,10 @@ const Premium = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-    </div>
+    </div></>)}
+
+    </>
+
   );
 };
 
