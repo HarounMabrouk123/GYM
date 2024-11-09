@@ -1,44 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import star from '../assets/icons/star.svg';
 import { useParams ,useNavigate } from 'react-router-dom';
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux'; 
+import { useDispatch } from 'react-redux';
+import { removeFromCart , addToCart} from '../slices/cartSlice';
+
 import Loader from './Loader';
 import Message from './Message';
-import { addToCart } from '../slices/cartSlice';
 
 const SingleProductCard = () => {
     const { id: productId } = useParams();
-    const navigate = useNavigate();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
     const { data: product, isLoading, error } = useGetProductDetailsQuery(productId);
 
-    const addToCartHandler = () => {
-      dispatch(addToCart({...product, qty: selectedQuantity}));
+    const [quantity, setQuantity] = useState(1);  // State for selected quantity
 
-      navigate('/cart')
+    const handleQuantityChange = (event) => {
+        setQuantity(Number(event.target.value));  // Update quantity when the user selects a different value
+    };
+    
+
+    const handleAddCart = () => {
+        dispatch(addToCart({...product , quantity}))
+        navigate('/cart')
     }
-
-    const [selectedQuantity , setSelectedQuantity] = useState(1)
-
-
+    const handleClearCart = () => {
+        dispatch(removeFromCart());  // Clear the cart
+    };
 
     if (isLoading) {
-        return <Loader></Loader>
+        return <Loader />;
     }
 
     if (error) {
-        return <Message variant='danger'>{error?.data.message || error.error}</Message>
+        return <Message variant='danger'>{error?.data.message || error.error}</Message>;
     }
-
-    
-
-    const handleQuantityChange = (event) => {
-      setSelectedQuantity(event.target.value)
-    }
-
-
 
     return (
         <section className="flex justify-center gap-20">
@@ -144,15 +141,18 @@ const SingleProductCard = () => {
 
                     {/* Quantity Selector and Add to Cart Button */}
                     <div className="flex items-center mt-6">
-                        <select className="border border-gray-300 rounded px-4 py-2 mr-4" value={selectedQuantity} onChange={handleQuantityChange}>
+                        <select className="border border-gray-300 rounded px-4 py-2 mr-4" value={quantity} onChange={handleQuantityChange}>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
                             <option value={3}>3</option>
                             <option value={4}>4</option>
                             <option value={5}>5</option>
                         </select>
-                        <button className="px-8 py-2 bg-black text-white font-bold rounded" onClick={addToCartHandler}>
+                        <button className="px-8 py-2 bg-black text-white font-bold rounded" onClick={handleAddCart}>
                             ADD TO CART
+                        </button>
+                        <button className="px-8 py-2 bg-black text-white font-bold rounded" onClick={handleClearCart}>
+                            Clear Cart
                         </button>
                     </div>
                 </div>

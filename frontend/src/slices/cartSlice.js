@@ -1,49 +1,63 @@
-import {createSlice} from '@reduxjs/toolkit'
-import { startSession } from 'mongoose';
+import { createSlice } from "@reduxjs/toolkit";
 
-
-
-const initialState = localStorage.getItem("cart") ? JSON.parse
-(localStorage.getItem("cart")) : {cartItems: []}
-
+const initialState = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : {cartItems:[]}
 const addDecimals = (num) => {
-    return (Math.round(num*100) / 100).toFixed(2)
+    if (isNaN(num)) return "0.00";  // Handle NaN input
+    return (Math.round(num * 100) / 100).toFixed(2);
 }
 
 const cartSlice = createSlice({
-    name:"cart",
+    name:"cart" ,
     initialState,
     reducers:{
+
         addToCart: (state,action) => {
-            const item = action.payload ;
+            const item = action.payload
+            console.log(item)
+            const existItem = state.cartItems.find((x) => x._id == item._id)
+            if (existItem) {
+                state.cartItems = state.cartItems.map((x) => x._id === existItem._id ? item : x)
+            }
+            else{
+                state.cartItems = [...state.cartItems , item]
+            }
 
-            const existItem = state.cartItems.find((x) => x._id === item._id) ;
-            console.log(existItem)
-
-            if(existItem) {
-                state.cartItems = state.cartItems.map((x) =>  x._id === existItem._id ? { ...x, qty: item.qty } : x)
-                } else {
-                    state.cartItems = [...state.cartItems , item]
-                    }
-
-
-            //calculate price
-            state.itemsPrice =addDecimals(state.cartItems.reduce((acc,item) => acc + item.price * item.qty , 0) )       
+            //calculate items price
+            const orders = state.cartItems.map((x) => x.price * x.quantity)
+            state.itemsPrice = orders.reduce((acc,x) => acc + x , 0)
 
             //calculate shipping price
-            state.shippinPrice = addDecimals(state.itemsPrice > 100 ? 0 : 10) ;
+            state.shippingPrice = state.itemsPrice > 100 ? 0 : 10 ;
 
-            //calculate tax price
-            state.taxPrice = addDecimals(Number((0.15 * state.itemsPrice).toFixed(2)))
+            //calculate tax price 
+            state.taxPrice = state.itemsPrice*0.15
 
-            //calculate total price
-            state.totalPrice = ( Number(state.itemsPrice) + Number(state.shippinPrice) + Number(state.taxPrice)).toFixed(2) ;
+            console.log(state.shippingPrice)
+            console.log(state.shippinPrice)
 
-            localStorage.setItem('cart' , JSON.stringify(state))
+            //total
+            state.totalPrice =state.itemsPrice + state.shippingPrice + state.taxPrice
             
+            localStorage.setItem("cart",JSON.stringify(state)) ; 
+
+            
+
+
+        } ,
+
+
+        removeFromCart: (state) => {
+            state.cartItems = [] ;
+            state.itemsPrice = 0
+            state.shippingPrice = 0
+            state.taxPrice = 0
+            state.totalPrice = 0
+            console.log(state.cartItems)
+
+            localStorage.setItem("cart",JSON.stringify(state))
         }
+
     }
 })
-
-export const {addToCart} = cartSlice.actions
-export default cartSlice.reducer ; 
+export const {removeFromCart , addToCart} = cartSlice.actions
+export default cartSlice.reducer ;
