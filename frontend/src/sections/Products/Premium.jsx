@@ -15,7 +15,7 @@ const Premium = () => {
   return (
     <>
        { isLoading ? ( <Loader></Loader>) : error ? (<Message variant='danger'>{error?.data.message || error.error}</Message>) : (<>        <div className="flex flex-col">
-        
+       
       <h1 className="text-4xl font-bebas font-bold mb-8 mt-12">Shop by Category</h1>
       <div className="flex justify-around gap-2 space-x-8 mb-10">
         <button className="text-2xl font-bebas text-gray-500">Protein</button>

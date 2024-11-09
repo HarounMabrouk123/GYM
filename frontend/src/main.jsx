@@ -10,6 +10,8 @@ import ProductsScreen from './screens/ProductsScreen.jsx';
 import { Provider } from 'react-redux';
 import store from './store.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SingleProduct from './screens/SingleProduct.jsx';
+import CartScreen from './screens/CartScreen.jsx';
 
 
 
@@ -22,6 +24,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />}>
           <Route index={true} path='/' element={<HomeScreen />} />
           <Route path="products" element={<ProductsScreen />} />
+          <Route path="products/:id" element={<SingleProduct />} />
+          <Route path="cart" element={<CartScreen />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

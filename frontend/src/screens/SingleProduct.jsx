@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import SingleProductCard from '../components/SingleProductCard';
 
 const SingleProduct = () => {
-  return (
-    <div>SingleProduct</div>
-  )
-}
 
-export default SingleProduct
+
+
+
+  return (
+    
+    <main className='relative'>
+
+    <section className='padding  '>
+        <SingleProductCard></SingleProductCard>
+    </section>
+</main>
+
+  );
+};
+
+export default SingleProduct;
