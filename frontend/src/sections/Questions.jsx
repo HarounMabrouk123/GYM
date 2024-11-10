@@ -16,7 +16,7 @@ const Questions = () => {
 
   return (
     <div className="flex flex-col items-center  text-gray-200 p-8">
-      <h1 className="font-palanquin capitalize text-3xl lg:text-4xl font-bold text-white mb-7">Frequently Asked Questions</h1>
+      <h1 className="font-bebas capitalize text-3xl lg:text-4xl font-bold text-white mb-7">Frequently Asked Questions</h1>
       {questions.map((question, index) => (
         <div key={index} className="w-full max-w-2xl mb-4">
           <div 

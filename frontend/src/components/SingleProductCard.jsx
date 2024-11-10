@@ -3,7 +3,7 @@ import star from '../assets/icons/star.svg';
 import { useParams ,useNavigate } from 'react-router-dom';
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
 import { useDispatch } from 'react-redux';
-import { removeFromCart , addToCart} from '../slices/cartSlice';
+import { addToCart} from '../slices/cartSlice';
 
 import Loader from './Loader';
 import Message from './Message';
@@ -25,9 +25,6 @@ const SingleProductCard = () => {
         dispatch(addToCart({...product , quantity}))
         navigate('/cart')
     }
-    const handleClearCart = () => {
-        dispatch(removeFromCart());  // Clear the cart
-    };
 
     if (isLoading) {
         return <Loader />;
@@ -151,9 +148,7 @@ const SingleProductCard = () => {
                         <button className="px-8 py-2 bg-black text-white font-bold rounded" onClick={handleAddCart}>
                             ADD TO CART
                         </button>
-                        <button className="px-8 py-2 bg-black text-white font-bold rounded" onClick={handleClearCart}>
-                            Clear Cart
-                        </button>
+
                     </div>
                 </div>
             </div>

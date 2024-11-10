@@ -46,13 +46,23 @@ const cartSlice = createSlice({
         } ,
 
 
-        removeFromCart: (state) => {
-            state.cartItems = [] ;
-            state.itemsPrice = 0
-            state.shippingPrice = 0
-            state.taxPrice = 0
-            state.totalPrice = 0
-            console.log(state.cartItems)
+        removeFromCart: (state , action) => {
+           state.cartItems = state.cartItems.filter((x) => x._id !== action.payload )
+           const orders = state.cartItems.map((x) => x.price * x.quantity)
+           state.itemsPrice = orders.reduce((acc,x) => acc + x , 0)
+
+           //calculate shipping price
+           state.shippingPrice = state.itemsPrice > 100 && state.itemsPrice!=0   ? 0 : 10 ;
+
+           //calculate tax price 
+           state.taxPrice = state.itemsPrice*0.15
+
+           console.log(state.shippingPrice)
+           console.log(state.shippinPrice)
+
+           //total
+           state.totalPrice =state.itemsPrice + state.shippingPrice + state.taxPrice
+
 
             localStorage.setItem("cart",JSON.stringify(state))
         }

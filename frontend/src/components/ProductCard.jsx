@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
           <span className='text-blue-500 text-sm font-medium'>|</span>
           <span className='text-blue-500 text-sm font-medium'>{product.sizes} Sizes</span>
         </div>
-        <p className="text-xl font-bold text-gray-800 mb-2">{product.price}</p>
+        <p className="text-xl font-bold text-gray-800 mb-2">${product.price}</p>
         <div className="text-blue-500 text-sm font-medium">
           ⭐ {product.rating} ({product.reviews} reviews)
         </div>
