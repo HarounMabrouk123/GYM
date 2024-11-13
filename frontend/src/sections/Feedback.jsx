@@ -27,7 +27,7 @@ const ClassCourse = () => {
       }}
     >
       {/* Title for the feedback section */}
-      <h1 className="font-palanquin capitalize text-3xl lg:text-4xl font-bold text-white mb-7">
+      <h1 className="font-bebas capitalize text-3xl lg:text-4xl font-bold text-white mb-7">
         Clients Feedback
       </h1>
 

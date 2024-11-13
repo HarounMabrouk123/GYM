@@ -9,7 +9,7 @@ const Fit = () => {
               <div className='w-[40%] max-md:hidden opacity-55 h-16 bg-gradient-to-t from-[#FF6400] to-[#FFED00] absolute top-[92%] -right-16'></div>
 
         <div className='flex flex-col justify-center items-center max-w-[50%] gap-8 '>
-            <h1 className='text-white text-[48px] font-palanquin capitalize lg:text-4xl font-bold  mt-3 text-center'>Fit your lifestyle</h1>
+            <h1 className='text-white text-[48px] font-bebas capitalize lg:text-4xl font-bold  mt-3 text-center'>Fit your lifestyle</h1>
             <p className='text-white text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem architecto dolorum assumenda ipsam commodi nobis deleniti sint doloribus, asperiores laudantium perspiciatis enim! Ad quas voluptatem dolorum vitae. Accusamus, cum consectetur!</p>
         </div>
         <div className="relative"> 

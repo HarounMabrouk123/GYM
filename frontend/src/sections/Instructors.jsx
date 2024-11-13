@@ -9,11 +9,11 @@ import coach4 from '../assets/images/coach4.png'
 
 const Instructors = () => {
   return (
-    <div className='max-lg:mt-[1200px] relative flex items-center justify-center flex-col gap-10'> 
+    <div className='max-lg:mt-[50px] relative flex items-center justify-center flex-col gap-10'> 
          <div className='w-[30%] opacity-35  z-0 max-md:hidden  h-16 bg-gradient-to-t from-[#FF6400] to-[#FFED00] absolute top-[70%] -left-16'></div>
         <div className='w-[66%]  opacity-35 z-0 max-md:hidden  h-16 bg-gradient-to-t from-[#FF6400] to-[#FFED00] absolute top-[85%] -left-16'></div>
 
-        <h1 className='text-white text-[48px] font-palanquin capitalize lg:text-4xl font-bold  mt-3 text-center'>Instructors</h1>
+        <h1 className='text-white text-[48px] font-bebas capitalize lg:text-4xl font-bold  mt-3 text-center'>Instructors</h1>
         <div className='flex z-20 max-lg:flex-col justify-between gap-6'>
             <div className='flex flex-col justify-between gap-5'>
                 <img src={coach1} alt="" />

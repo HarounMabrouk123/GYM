@@ -11,7 +11,7 @@ import minirect from '../assets/images/minirect.png'
 const ClassCourse = () => {
   return (
     <div className='flex items-center justify-center flex-col gap-10 '>
-        <h1 className='text-white text-[48px] font-palanquin capitalize lg:text-4xl font-bold  text-center'>Classes</h1>
+        <h1 className='text-white text-[48px] font-bebas capitalize lg:text-4xl font-bold  text-center'>Classes</h1>
         <div className='flex  max-lg:flex-col justify-between items-center gap-8'>
             <div className='flex flex-col justify-center mr-6 ml-6 gap-4'>
                 <div className="relative">
@@ -30,7 +30,7 @@ const ClassCourse = () => {
                     </div>
                  </div>
                  <div className='flex flex-col justify-between gap-2'>
-                    <h1 className='text-white'>Stength and sweat</h1>
+                    <h1 className='text-white text-xl'>Stength and sweat</h1>
                     <h3 className='text-white'>Instructor : wala brahmi</h3>
                     <div className='flex gap-3 '>
                         <img src={dot} alt="" className='w-[8px] h-[8px] mt-2'/>
@@ -64,7 +64,7 @@ const ClassCourse = () => {
                     </div>
                  </div>
                  <div className='flex flex-col justify-between gap-2'>
-                    <h1 className='text-white'>Stength and sweat</h1>
+                    <h1 className='text-white text-xl'>Stength and sweat</h1>
                     <h3 className='text-white'>Instructor : wala brahmi</h3>
                     <div className='flex gap-3 '>
                         <img src={dot} alt="" className='w-[8px] h-[8px] mt-2'/>
@@ -98,7 +98,7 @@ const ClassCourse = () => {
                     </div>
                  </div>
                  <div className='flex flex-col justify-between gap-2'>
-                    <h1 className='text-white'>Stength and sweat</h1>
+                    <h1 className='text-white text-xl'>Stength and sweat</h1>
                     <h3 className='text-white'>Instructor : wala brahmi</h3>
                     <div className='flex gap-3 '>
                         <img src={dot} alt="" className='w-[8px] h-[8px] mt-2'/>

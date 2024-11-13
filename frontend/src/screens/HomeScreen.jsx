@@ -21,12 +21,12 @@ const HomeScreen = () => {
     <section className='padding circular-gradient'>
             <Fit></Fit>
     </section>
-    <section className=' ' 
+    <section className='padding' 
             style={{
               backgroundImage: `url(${bgclass})`,
               backgroundSize: 'cover', // Adjust to zoom out the image (e.g., 110% to zoom out)backgroundSize: 'cover',
               backgroundPosition: 'center', // Adjust -2rem to control the upward translation
-              height: '100vh',
+              
             }}>
         
                 

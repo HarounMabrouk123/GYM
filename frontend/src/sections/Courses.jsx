@@ -10,7 +10,7 @@ import gym from '../assets/images/GYM.png';
 const Courses = () => {
   return (
     <section className='flex justify-center flex-col items-center max-lg:flex-col gap-10 w-full max-container'> 
-    <h1 className='font-palanquin capitalize text-3xl lg:text-4xl font-bold text-white mt-3'>Find what motivates you</h1> 
+    <h1 className='font-bebas capitalize text-3xl lg:text-4xl font-bold text-white mt-3'>Find what motivates you</h1> 
         <div className="flex justify-between items-center max-lg:flex-col gap-10 w-full max-container">
     <div className="flex-1 flex justify-start flex-col ">
       <img
