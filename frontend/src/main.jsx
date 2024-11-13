@@ -12,8 +12,8 @@ import store from './store.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SingleProduct from './screens/SingleProduct.jsx';
 import CartScreen from './screens/CartScreen.jsx';
-
-
+import LoginScreen from './screens/LoginScreen.jsx';
+import RegisterScreen from './screens/RegisterScreen.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -26,6 +26,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="products" element={<ProductsScreen />} />
           <Route path="products/:id" element={<SingleProduct />} />
           <Route path="cart" element={<CartScreen />} />
+          <Route path="login" element={<LoginScreen />} />
+          <Route path="register" element={<RegisterScreen />} />
 
         </Route>
       </Routes>
