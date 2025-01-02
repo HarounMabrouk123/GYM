@@ -9,6 +9,7 @@ import Questions from '../sections/Questions';
 import VideoSection from '../sections/VideoSection';
 import Feedback from '../sections/Feedback';
 
+
 const HomeScreen = () => {
   return (
     <main className="relative">
@@ -42,9 +43,7 @@ const HomeScreen = () => {
     <section className='bg-black padding circular-gradient'>
               <VideoSection></VideoSection>
     </section>
-
-        
-                
+            
     <Feedback></Feedback>   
              
 
@@ -54,6 +53,7 @@ const HomeScreen = () => {
         <Questions></Questions>            
 
     </section>
+
 
     
   </main>

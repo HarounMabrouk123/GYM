@@ -14,6 +14,8 @@ import SingleProduct from './screens/SingleProduct.jsx';
 import CartScreen from './screens/CartScreen.jsx';
 import LoginScreen from './screens/LoginScreen.jsx';
 import RegisterScreen from './screens/RegisterScreen.jsx';
+import ProfileScreen from './screens/ProfileScreen.jsx';
+import Chatbot from './screens/Chatbot.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -28,6 +30,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="cart" element={<CartScreen />} />
           <Route path="login" element={<LoginScreen />} />
           <Route path="register" element={<RegisterScreen />} />
+          <Route path="/profile" element={<ProfileScreen />} />
+          <Route path="/chatbot" element={<Chatbot />} />
+
 
         </Route>
       </Routes>

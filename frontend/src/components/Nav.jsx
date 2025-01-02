@@ -46,13 +46,21 @@ const Nav = () => {
         {/* Render only the logo on the register or login page */}
         {!isAuthPage && (
           <>
-            <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden'>
-              <li className='font-montserrat leading-normal text-lg text-white'>Home</li>
-              <li className='font-montserrat leading-normal text-lg text-white'>About</li>
-              <li className='font-montserrat leading-normal text-lg text-white'>Workout Programs</li>
-              <li className='font-montserrat leading-normal text-lg text-white'>Recipes</li>
-              <li className='font-montserrat leading-normal text-lg text-white'>Store</li>
-            </ul>
+               <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden'>
+                 <li className='font-montserrat leading-normal text-lg text-white'>               
+                   <a href="/" className='no-underline text-white hover:underline'>Home</a>
+                 </li>
+                 <li className='font-montserrat leading-normal text-lg text-white'>               
+                   <a href="#about" className='no-underline text-white hover:underline'>About</a>
+                 </li>
+                 <li className='font-montserrat leading-normal text-lg text-white'>
+                   <a href="/products" className='no-underline text-white hover:underline'>Products</a>
+                 </li>
+                 <li className='font-montserrat leading-normal text-lg text-white'>
+                   <a href="/chatbot" className='no-underline text-white hover:underline'>GymBro</a>
+                 </li>
+               </ul>
+
             <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
               {userInfo ? (
                 <div className='relative flex items-center'>
@@ -76,8 +84,8 @@ const Nav = () => {
                 </div>
               ) : (
                 <>
-                  <Button backgroundColor='bg-[#FDDB07] border-[#FDDB07] rounded-full'>Sign In</Button>
-                  <Button backgroundColor='bg-[#FDDB07] border-[#FDDB07] rounded-full'>Log In</Button>
+                 <Link className='text-black ' to='/register'> <Button backgroundColor='bg-[#FDDB07] border-[#FDDB07] rounded-full '>Sign In</Button> </Link>
+                 <Link className='text-black' to='/login'> <Button backgroundColor='bg-[#FDDB07] border-[#FDDB07] rounded-full '>Log In</Button> </Link>
                 </>
               )}
             </div>
